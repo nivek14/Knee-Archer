@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class MoveBow : MonoBehaviour{
 
-    public Transform orb;
-    public float radius;
+    public Transform gunHolder;
  
-    private Transform pivot;
- 
-    void Start()
-    {
-        pivot = orb.transform;
-        transform.parent = pivot;
-        transform.position += Vector3.up * radius;
-    }
- 
-    void Update()
-    {
-        Vector3 orbVector = Camera.main.WorldToScreenPoint(orb.position);
-        orbVector = Input.mousePosition - orbVector;
-        float angle = Mathf.Atan2(orbVector.y, orbVector.x) * Mathf.Rad2Deg;
- 
-        pivot.position = orb.position;
-        pivot.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+    void Update(){
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 screenPoint = Camera.main.WorldToScreenPoint(transform.localPosition);
+        Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
+        float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+        gunHolder.rotation = Quaternion.Euler(0,0,angle);
     }
 }

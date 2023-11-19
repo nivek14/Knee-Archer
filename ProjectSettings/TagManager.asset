@@ -8,6 +8,7 @@ TagManager:
   - RightWall
   - UpWall
   - DownWall
+  - Arrow
   layers:
   - Default
   - TransparentFX

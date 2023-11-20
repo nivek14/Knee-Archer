@@ -1085,6 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 4513829517090673349, guid: 699627c95e35abe418679935e952c87d, type: 3}
   arrowPoint: {fileID: 369943299}
+  launchForce: 10
 --- !u!1001 &3672388153129829277
 PrefabInstance:
   m_ObjectHideFlags: 0

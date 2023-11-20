@@ -6,6 +6,7 @@ public class ShootArrows : MonoBehaviour{
 
     [SerializeField] private GameObject arrow;
     [SerializeField] private Transform arrowPoint;
+    [SerializeField] private float launchForce;
 
     void Update(){
         if(Input.GetButtonDown("Fire1")){
@@ -14,7 +15,8 @@ public class ShootArrows : MonoBehaviour{
     }
 
     private void Shoot(){
-        Instantiate(arrow, arrowPoint.position, arrowPoint.rotation);
+        GameObject newArrow = Instantiate(arrow, arrowPoint.position, arrowPoint.rotation);
+        newArrow.GetComponent<Rigidbody2D>().velocity = transform.position * launchForce;
     }
 
 }
